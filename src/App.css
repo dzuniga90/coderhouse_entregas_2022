@@ -1,38 +1,59 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One:regular,bold,italic&subset=latin,latin-ext');
+
+.storeLogo {display: inline; margin-right: 18%;
+  font-family: 'Fredoka One';
+  font-size: 33px;
+}
+nav {
+  font-family: 'Helvetica';
   text-align: center;
+  background-color: #af4ac4;
+  color: rgb(254, 254, 254);
+  font-size: 25px;
+  height: 8vh;
+  padding: 5px;
+  max-height: 8.5vh;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+nav a {
+  margin-right: 3%;
   color: white;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+.navlinks {
+  display: inline;
+  margin-right: 9%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hello {
+  width: 400px;
+  height: 400px;
+  min-height: 250px;
+  min-width: 250px;
+  margin: 10px auto auto auto;
+  font-size: 34px;
+  border: 4px solid fuchsia;
+  text-align: center;
+  text-transform: capitalize;
+  box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+}
+
+.cart {
+  font-size: 20px;
+  color: white;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 6%;
+  justify-items: right;
+  top: 14px;
+  display: inline-flex;
+}
+.cart a {
+  margin-top: -25%;
+  padding: 5px;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+  
 }
