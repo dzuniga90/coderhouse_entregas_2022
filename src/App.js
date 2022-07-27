@@ -1,20 +1,20 @@
 import './App.css';
-//import Container from "./components/container/container";
+import ItemListContainer from "./components/container/container";
 import Navbar from "./components/navbar";
-//import CartWidget from "./components/cart"
+import CartWidget from "./components/cart"
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <Navbar/>
-        {/* /<CartWidget/> */}
+         <CartWidget/>
 
       </header>
-      {/*
-      <Container texto={'Find the best sweets here '}></Container>
-      <Container texto={'A subscription candy box service for your taste buds'}></Container>
-      <Container texto={'Rated best in variety and quality'}></Container> */}
+      
+      <ItemListContainer texto={'Find the best sweets here '}></ItemListContainer>
+      <ItemListContainer texto={'A subscription candy box service for your taste buds'}></ItemListContainer>
+      <ItemListContainer texto={'Rated best in variety and quality'}></ItemListContainer> 
     </div>
   );
 }
