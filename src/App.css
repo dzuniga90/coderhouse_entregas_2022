@@ -80,5 +80,16 @@ nav a {
 }
 
 .items {
-  margin: auto;
+  display: flex;
+  max-width: 45%;
+  margin: 20px auto auto auto;
+  border: 2px solid #000;
+
+}
+
+h2{text-align: center; text-shadow: cornflowerblue;}
+
+.cardBody {
+  height: 200px;
+
 }
