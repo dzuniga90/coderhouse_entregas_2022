@@ -1,31 +1,21 @@
 import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 
 function Item(props) {
     return (
         <div className="items">
-            <Row xs={3} md={4} className="g-4">
-            {Array.from({length: 1}).map((_, idx) => ( 
-            <Col>
-            <Card>
             <Card.Img variant="top" src={props.picURL} style={{width: '100px', height: '130px'}} />
-            <Card.Body>
-            <Card.Title>{props.title}
-            {props.children} <br></br>{props.price}</Card.Title>
-            <Card.Text>
+            <div className="cardBody">
+            {props.title}<br></br>
+             <br></br>{props.price}
+            <div className="cardText">
                 This is a wider card with supporting text below as a natural lead-in
                 to additional content. This content is a little bit longer.
-            </Card.Text>
+            </div>
             <button>View Details</button>
-            </Card.Body>
+            </div>
             <Card.Footer>
             <small className="text-muted">Stock info</small>
             </Card.Footer>
-            </Card>
-            </Col>
-            ))}
-            </Row>            
             </div>
         );
 }
