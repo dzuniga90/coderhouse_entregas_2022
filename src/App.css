@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One:regular,bold,italic&subset=latin,latin-ext');
 
-.storeLogo {display: inline;
+.storeLogo a {display: inline;
   font-family: 'Fredoka One';
   font-size: 33px;
+  color: white;
+  text-decoration: none;
 }
 nav {
   font-family: 'Helvetica';
