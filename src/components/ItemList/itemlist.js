@@ -7,8 +7,8 @@ function ItemList({props}) {
         console.log(item.price);
         console.log(item.pictureUrl);
         return (<div className="itemList">
-            <Item key={item.candyID} candyID={item.candyID} title={item.title} price={item.price}
-            picURL = {item.pictureUrl}/>
+            <Item key={item.candyID} id={item.candyID} categoryId = {item.categoryID} title={item.title} price={item.price}
+            picURL = {item.pictureUrl} desc= {item.description}/>
         </div>);
     }
     ));
