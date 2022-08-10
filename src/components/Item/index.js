@@ -1,22 +1,26 @@
-import Card from 'react-bootstrap/Card';
+import {Link} from 'react-router-dom';
 
 function Item(props) {
     return (
         <div className="items">
-            <Card.Img variant="top" src={props.picURL} style={{width: '100px', height: '130px'}} />
+            <div class="itemImg">
+            <img src={props.picURL} />
+            </div>
             <div className="cardBody">
             {props.title}<br></br>
              <br></br>{props.price}
             <div className="cardText">
-                This is a wider card with supporting text below as a natural lead-in
-                to additional content. This content is a little bit longer.
+               {props.desc}
             </div>
-            <button>View Details</button>
+            <div className="link">
+            <Link to={`/detail/${props.id}`} style={{textDecoration: 'none' }}>
+                    <div className="btnDetailsContainer">
+                    <button className="viewDetails">View Details</button>
+                    </div>
+                    </Link>
             </div>
-            <Card.Footer>
-            <small className="text-muted">Stock info</small>
-            </Card.Footer>
             </div>
+        </div>
         );
 }
 
