@@ -1,16 +1,15 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {Link} from 'react-router-dom';
+//import ItemDetails from "../Item/ItemDetails/itemdetails";
+//import {CartContext} from '../CartContext/cartcontext';
 
-function Counter () {
-    const [counter, setCounter] = useState(0);
+function Counter ( ) {
+    const [counter, setCounter] = useState(1);
     const [stock, setStock] = useState(10);
     const [enableCounter, setEnableCounter] = useState(true);
     const [enableAdd, setEnableAdd] = useState(true)
-    setTimeout( () => {
-        setStock(0)
-        setEnableCounter(false);
-    }, 15000);
 
-
+    //const {onAdd} = useContext(CartContext);
 
     function addItem () {
         if (counter >= stock) {alert("The item quantity exceeds the current stock");
@@ -28,23 +27,31 @@ function Counter () {
     }
 
     return (
+    <div>
         <div className="counter">
-            Item
-        <img src="https://www.hersheys.com/is/image/content/dam/smartlabelproductsimage/jollyrancher/00010700156716-0010.png?wid=570&hei=570&fmt=png-alpha"/>
         {stock==0 ?
             <p>Item out of stock</p> : null
         }
-        <p>{counter}</p> <br/>
-        <button onClick={
+        <div className="quantitybtns">
+        <button className="plus" onClick={
             addItem }
         style={{color: 'white', background: 'fuchsia'}} disabled={!enableCounter || !enableAdd}>+</button>
-        <button onClick={
+        <div className="quantity"><p>{counter}</p></div>
+
+        <button className="minus" onClick={
             decrementItem
         }
         style={{color: 'white', background: 'gray'}} disabled={!enableCounter}
         >-</button>
         </div>
-    );
+        </div>
+        <div className="btnBuyContainer">
+            <Link to={`/cart`}>
+            <button className="buy">Add to cart</button>
+            </Link>
+        </div>
+    </div>
+        );
 }
 
 export default Counter;
