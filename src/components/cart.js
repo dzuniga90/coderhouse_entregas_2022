@@ -1,8 +1,10 @@
 import "../App.css";
 import cart from "../imgs/cart.png";
+import {Link} from 'react-router-dom';
+
 function CartWidget() {
   return (<div className="cart">
-     <img src={cart}/><a href="index.html">My Cart</a>
+     <img src={cart}/><Link to="./cart">My Cart</Link>
   </div>);
 }
 
