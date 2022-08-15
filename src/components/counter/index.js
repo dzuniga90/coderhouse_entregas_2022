@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 //import ItemDetails from "../Item/ItemDetails/itemdetails";
 //import {CartContext} from '../CartContext/cartcontext';
 
-function Counter ( ) {
+function ItemCount ( ) {
     const [counter, setCounter] = useState(1);
     const [stock, setStock] = useState(10);
     const [enableCounter, setEnableCounter] = useState(true);
@@ -54,4 +54,4 @@ function Counter ( ) {
         );
 }
 
-export default Counter;
+export default ItemCount;
