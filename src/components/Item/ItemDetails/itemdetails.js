@@ -1,18 +1,36 @@
-function ItemDetails(item) {
+//import {useContext} from "react";
+import ItemCount from "../../counter";
+
+//import {CartContext} from '../../CartContext/cartcontext';
+//import { useState } from "react";
+
+
+function ItemDetails({
+    id, title, description, pictureUrl, price
+}) {
+    /* const {addItemToCart} = useContext(CartContext);
+
+    const [itemAddedToCart, setItemAddedtoCart] = useState(false);
+
+    const onAdd = (quantityToAdd) => {
+        addItemToCart({id, quantityToAdd});
+        console.log("Quanity to add event");
+        setItemAddedtoCart(true);
+    }; */
+
     return (
         <div className="items">
-            <div class="itemImg">
-            <img src={item.pictureUrl} />
+            <div className="itemImg">
+            <img src={pictureUrl} />
             </div>
             <div className="cardBody">
-            {item.title}<br></br>
-            <br></br>{item.price}
+            {title}<br></br>
+            <br></br>{price}
             <div className="cardText">
-             {item.description}
+             {description}
             </div>
-            <div className="btnBuyContainer">
-                <button className="buy">Buy</button>
-                </div>
+            <ItemCount/>
+            
             </div>
         </div>
         );
