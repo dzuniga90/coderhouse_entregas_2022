@@ -1,5 +1,5 @@
 //import {useContext} from "react";
-import ItemCount from "../../counter";
+import ItemCount from "../../ItemCount/index";
 
 //import {CartContext} from '../../CartContext/cartcontext';
 //import { useState } from "react";
