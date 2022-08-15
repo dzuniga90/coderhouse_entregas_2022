@@ -1,11 +1,11 @@
 import React, {useContext} from "react";
-//import { CartContext } from '../CartContext/cartcontext';
+import { CartContext } from '../CartContext/cartcontext';
 
 
 function Cart () {
-    //const {cartData} = useContext(CartContext);
+    const {cartData} = useContext(CartContext);
 
-    //console.log("cart data >>> ", cartData);
+    console.log("cart data >>> ", cartData);
 
 return (    
     <div className="cartInfo">
