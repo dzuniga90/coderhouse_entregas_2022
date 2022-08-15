@@ -5,12 +5,12 @@ import Counter from "./components/counter/index";
 import Cart from "./components/Cart/cart";
 import { Routes, Route, BrowserRouter} from "react-router-dom";
 import ItemDetailsContainer from "./components/ItemDetailsContainer/itemdetailscontainer";
-import CartCustomContext from "./components/CartContext/cartcontext";
+//import CartCustomContext from "./components/CartContext/cartcontext";
 
 function App() {
   return (
     <div className="App">
-    <CartCustomContext>
+    {/*<CartCustomContext>*/}
     <BrowserRouter>
       <Navbar/>
       {/*<Counter></Counter>*/}
@@ -22,7 +22,7 @@ function App() {
         <Route path='/detail/:productID' element={<ItemDetailsContainer/>} />
       </Routes>
     </BrowserRouter>
-    </CartCustomContext>
+      {/*</CartCustomContext>*/}
     </div>
   );
 }
