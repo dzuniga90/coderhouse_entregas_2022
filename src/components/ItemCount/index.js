@@ -1,15 +1,19 @@
 import {useContext, useState} from "react";
 import {Link} from 'react-router-dom';
 import ItemDetails from "../Item/ItemDetails/itemdetails";
-//import {CartContext} from '../CartContext/cartcontext';
+import {CartContext} from '../CartContext/cartcontext';
 
-function ItemCount ( ) {
+function ItemCount ({onAddItemsToCart} ) {
     const [counter, setCounter] = useState(1);
     const [stock, setStock] = useState(10);
     const [enableCounter, setEnableCounter] = useState(true);
     const [enableAdd, setEnableAdd] = useState(true)
 
-    //const {onAdd} = useContext(CartContext);
+    const onAddtoCart = (id, counter) => {
+        console.log(`${counter} added to the cart`);
+        onAddItemsToCart(id, counter);
+        console.log("ID: ", id, ", Quanity: ", counter);
+    } 
 
     function addItem () {
         if (counter >= stock) {alert("The item quantity exceeds the current stock");
@@ -47,7 +51,7 @@ function ItemCount ( ) {
         </div>
         <div className="btnBuyContainer">
             <Link to={`/cart`}>
-            <button className="buy">Add to cart</button>
+            <button className="buy" onClick={onAddtoCart}>Add to cart</button>
             </Link>
         </div>
     </div>
