@@ -97,6 +97,9 @@ nav {
   font-size: 19px;
 }
 
+.itemDetail {
+  display: inline-flex;
+}
  .items {
   width: calc(33vw - 20px);
   /*min-width: 300px;*/
@@ -166,5 +169,10 @@ nav {
   justify-content: center;
 }
 
+.itemQuantity {
+  display: grid;
+  flex-direction: column;
+  justify-content:center ;
+}
 
 h2{text-align: center; text-shadow: cornflowerblue;}
