@@ -3,16 +3,21 @@ import {Link} from 'react-router-dom';
 import ItemDetails from "../Item/ItemDetails/itemdetails";
 import {CartContext} from '../CartContext/cartcontext';
 
-function ItemCount ({onAddItemsToCart} ) {
+function ItemCount ({onAddItemsToCart, candyID,
+title, description, pictureUrl, price} ) {
     const [counter, setCounter] = useState(1);
+    const [addedToCart, setAddedToCart] = useState(false);
     const [stock, setStock] = useState(10);
     const [enableCounter, setEnableCounter] = useState(true);
     const [enableAdd, setEnableAdd] = useState(true)
 
-    const onAddtoCart = (id, counter) => {
+    const onAddtoCart = (product) => {
         console.log(`${counter} added to the cart`);
-        onAddItemsToCart(id, counter);
-        console.log("ID: ", id, ", Quanity: ", counter);
+        onAddItemsToCart({product, candyID, counter,
+        title, description, pictureUrl, price}
+       );
+       setAddedToCart(true);
+        console.log("ID: ", candyID, ", Quantity: ", counter);
     } 
 
     function addItem () {
@@ -49,11 +54,16 @@ function ItemCount ({onAddItemsToCart} ) {
         >-</button>
         </div>
         </div>
+        {!addedToCart ? 
+            <div className="btnBuyContainer">
+                <button className="buy" onClick={onAddtoCart}>Add to Cart</button>
+            </div>
+        :
         <div className="btnBuyContainer">
             <Link to={`/cart`}>
-            <button className="buy" onClick={onAddtoCart}>Add to cart</button>
+            <button className="buy">Checkout</button>
             </Link>
-        </div>
+        </div> }
     </div>
         );
 }
