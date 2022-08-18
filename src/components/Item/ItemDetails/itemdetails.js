@@ -6,17 +6,15 @@ import { useState } from "react";
 
 
 function ItemDetails({
-    id, title, description, pictureUrl, price
+    candyID, title, description, pictureUrl, price
 }) {
     const {addItemToCart} = useContext(CartContext);
 
     const [itemAddedToCart, setItemAddedtoCart] = useState(false);
-
-    const onAdd = (id, quantityToAdd) => {
-        addItemToCart({id, quantityToAdd});
-        console.log("Quanity to add event");
+    const onAdd = (candyID) => {
+        addItemToCart(candyID);
         setItemAddedtoCart(true);
-    }; 
+    };
 
     return (
         <div className="items">
@@ -29,7 +27,10 @@ function ItemDetails({
             <div className="cardText">
              {description}
             </div>
-            <ItemCount onAddItemsToCart={onAdd}/>
+            <ItemCount onAddItemsToCart={onAdd} candyID={candyID} 
+            title={title} description={description} price={price}
+            pictureUrl={pictureUrl} 
+            />
             
             </div>
         </div>
