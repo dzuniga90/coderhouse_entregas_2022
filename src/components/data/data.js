@@ -1,4 +1,21 @@
-const candy = [
+import { getFirestore, getDocs, collection } from "firebase/firestore";
+import {getDoc, doc, query, where} from 'firebase/firestore';
+import {initializeApp} from 'firebase/app';
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyC9nitGLBPqUDHD6pOh4wmIK9fup7y7IRQ",
+    authDomain: "sweetpix-fc386.firebaseapp.com",
+    projectId: "sweetpix-fc386",
+    storageBucket: "sweetpix-fc386.appspot.com",
+    messagingSenderId: "1037526837021",
+    appId: "1:1037526837021:web:aef56405d791eb8ae063f4"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+
+/* const candy = [
 {
     "candyID" : "1",
     "title": "Peach Gummy Rings",
@@ -47,20 +64,44 @@ return new Promise((resolve, reject) => {
             //console.log('Descargar completa!', candy);
         }, 2000)
     }) 
-}
+} */
 
- export const getProductsByCategory = (categoryId) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(candy.filter(item => item.categoryID === categoryId));
-        }, 500)
-    })
+const db = getFirestore(app);
+ export const getProducts = async () => {
+    const colRef = collection(db, 'products');
+
+    const snapshot = await getDocs(colRef);
+    const products = snapshot.docs.map((rawDoc) => {
+        return {
+        id: rawDoc.id,
+        ...rawDoc.data()
+        }
+    });
+
+    return products;
+    };
+
+ export const getProductsByCategory = async (categoryID) => {
+    const query1 = query(collection(db, 'products', where('categoryID', '==', categoryID)));
+
+    const snapshot = await getDocs(query1);
+
+    const products = snapshot.docs.map((document) => {
+    return {
+        id: document.id,
+         ...document.data()
     }
+            });
+    return products;    
+ };
 
-export const getProductById = (id) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(candy.find(prod => prod.candyID === id));
-        }, 500)
-    })
-}
+export const getProductById = async (id) => {
+   const itemRef = doc(db, 'products', id)
+   const snapshot = await getDoc(itemRef);
+
+    if (snapshot.exists()) {
+        return {
+        id: snapshot.id,
+        ...snapshot.data() }
+    } 
+};
