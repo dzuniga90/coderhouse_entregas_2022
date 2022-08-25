@@ -8,14 +8,14 @@ function ItemListContainer() {
     const {categoryID} = useParams();
     useEffect(() => {
     if(!categoryID) {
-        getProducts().then(products=> {
-            setProducts(products)
+        getProducts().then(result=> {
+            setProducts(result)
         })
         .catch(err=>console.log(err))
     }
     else {
-        getProductsByCategory(categoryID).then((products) => {
-            setProducts(products)
+        getProductsByCategory(categoryID).then((result) => {
+            setProducts(result)
         })
     }
     },[categoryID])
