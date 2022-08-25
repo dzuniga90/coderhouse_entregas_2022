@@ -8,11 +8,11 @@ export default function CartCustomContext({children}) {
     const [count, setCount] = useState(0);
     const addItemToCart = (product) => {
         const productInCart = cart.find((productInCart) => 
-        productInCart.candyID === product.candyID);
+        productInCart.id === product.id);
 
         if(productInCart) {
             const newCart = cart.map(productInCart => {
-                if(productInCart.candyID === product.candyID) {
+                if(productInCart.id === product.id) {
                     return {...productInCart, counter: productInCart.counter
                          + product.counter}
                 }
@@ -30,8 +30,8 @@ export default function CartCustomContext({children}) {
         //console.log("Inside cart :", updatedList);
     };
 
-    const removeFromCart = (candyID) => {
-        setCart((cart.filter((item) => item.candyID !== candyID)));
+    const removeFromCart = (id) => {
+        setCart((cart.filter((item) => item.id !== id)));
     };
 
     const clearCart = () =>
