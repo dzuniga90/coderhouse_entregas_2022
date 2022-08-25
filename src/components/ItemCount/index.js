@@ -3,21 +3,17 @@ import {Link} from 'react-router-dom';
 import ItemDetails from "../Item/ItemDetails/itemdetails";
 import {CartContext} from '../CartContext/cartcontext';
 
-function ItemCount ({onAddItemsToCart, candyID,
-title, description, pictureUrl, price} ) {
+function ItemCount ({onAddItemsToCart} ) {
     const [counter, setCounter] = useState(1);
     const [addedToCart, setAddedToCart] = useState(false);
     const [stock, setStock] = useState(10);
     const [enableCounter, setEnableCounter] = useState(true);
     const [enableAdd, setEnableAdd] = useState(true)
 
-    const onAddtoCart = (product) => {
+    const onAddtoCart = (item) => {
         console.log(`${counter} added to the cart`);
-        onAddItemsToCart({product, candyID, counter,
-        title, description, pictureUrl, price}
-       );
-       setAddedToCart(true);
-        console.log("ID: ", candyID, ", Quantity: ", counter);
+        onAddItemsToCart(item);
+        setAddedToCart(true);
     } 
 
     function addItem () {
@@ -61,7 +57,7 @@ title, description, pictureUrl, price} ) {
         :
         <div className="btnBuyContainer">
             <Link to={`/cart`}>
-            <button className="buy">Checkout</button>
+            <button className="buy">Go to cart</button>
             </Link>
         </div> }
     </div>
