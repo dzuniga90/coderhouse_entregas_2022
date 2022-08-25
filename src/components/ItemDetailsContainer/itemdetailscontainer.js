@@ -8,20 +8,15 @@ const [product, setProduct] = useState({});
     const {productID} = useParams();
     
     useEffect(() => {
-        getProductById(productID).then(
-            products => {
-                console.log("products >>> " + products)
-                setProduct(products);
-            }
-        );
-        console.log("productId " + productID);
-
+        getProductById(productID)
+        .then(result => setProduct(result))
+        .catch(err => console.log(err));
     }, [productID])
     
 
     return (<>
         <h1>Details</h1>
-        <ItemDetails {...product}/>
+        <ItemDetails product={product}/>
     </>);
 }
 
