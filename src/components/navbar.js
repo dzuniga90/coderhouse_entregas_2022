@@ -16,6 +16,9 @@ function Navbar() {
             <li>
                 <Link to='category/latinAmerican' className="link">Latin American</Link>
             </li>
+            {/* <li>
+                <Link to='signup' className='link>'>Sign Up</Link>
+    </li> */}
         </ul> 
         <CartWidget/>    
        </nav>
