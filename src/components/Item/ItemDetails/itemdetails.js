@@ -5,34 +5,35 @@ import {CartContext} from '../../CartContext/cartcontext';
 import { useState } from "react";
 
 
-function ItemDetails({
-    candyID, title, description, pictureUrl, price
-}) {
+function  ItemDetails({product}) {
     const {addItemToCart} = useContext(CartContext);
 
     const [itemAddedToCart, setItemAddedtoCart] = useState(false);
-    const onAdd = (candyID) => {
-        addItemToCart(candyID);
+   const onAdd = (product) => {
+        addItemToCart(product);
         setItemAddedtoCart(true);
-    };
+    }; 
 
     return (
-        <div className="items">
-            <div className="itemImg">
-            <img src={pictureUrl} />
+        <div className="itemDetailWrapper">
+        <div className="itemDetailImg">
+                <img src ={product.picURL}/>
+        </div>
+            <div className="productDetails">
+                <div className="cardBody"><h2>
+                {product.title}</h2><br></br>
+                <h4><strong>{product.price}</strong></h4>
+                <div className='itemCount'>
+                <ItemCount onAddItemsToCart={onAdd} item={product}/>
+                </div>
+                <br></br>
+                <div className="cardText">
+                {product.description}
+                </div>
+
             </div>
-            <div className="cardBody">
-            {title}<br></br>
-            <br></br>{price}
-            <div className="cardText">
-             {description}
-            </div>
-            <ItemCount onAddItemsToCart={onAdd} candyID={candyID} 
-            title={title} description={description} price={price}
-            pictureUrl={pictureUrl} 
-            />
             
-            </div>
+    </div> 
         </div>
         );
 }
