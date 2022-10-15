@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 function Item(props) {
     return (
         <div className="items">
-            <div class="itemImg">
+            <div className="itemImg">
             <img src={props.picURL} />
             </div>
             <div className="cardBody">
