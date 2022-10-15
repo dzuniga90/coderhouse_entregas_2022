@@ -6,6 +6,7 @@ export default function CartCustomContext({children}) {
     const [cart, setCart] = useState([]);
     const [itemToRemove, setItemToRemove] = useState([]);
     const [count, setCount] = useState(0);
+    
     const addItemToCart = (product) => {
         const productInCart = cart.find((productInCart) => 
         productInCart.id === product.id);
@@ -40,7 +41,7 @@ export default function CartCustomContext({children}) {
     };
 
     return (
-        <CartContext.Provider value={{addItemToCart, cartData:cart, removeFromCart, clearCart}}>
+        <CartContext.Provider value={{addItemToCart, cart, removeFromCart, clearCart}}>
         {children}
     </CartContext.Provider>);
 }
