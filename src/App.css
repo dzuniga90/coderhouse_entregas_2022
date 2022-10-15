@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One:regular,bold,italic&subset=latin,latin-ext');
 
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
 .storeLogo a {display: inline;
   font-family: 'Fredoka One';
   font-size: 33px;
@@ -18,9 +20,8 @@ nav {
   align-items: center;
 }
 .navlinks li {
-  margin-right: 3%;
-  display: inline;
-  width: 250px;
+  display: flex;
+  width: 100%;
 }
 
 .navlinks li a {
@@ -30,20 +31,7 @@ nav {
 
 .navlinks {
   display: flex;
-}
-
-
-.hello {
-  width: 400px;
-  height: 400px;
-  min-height: 250px;
-  min-width: 250px;
-  margin: 10px auto auto auto;
-  font-size: 34px;
-  border: 4px solid fuchsia;
-  text-align: center;
-  text-transform: capitalize;
-  box-shadow: rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+  width: 100%;
 }
 
 .cart {
@@ -69,17 +57,22 @@ nav {
 
 .counter {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   margin-top: 20px;
+  
 }
 
+.quantitybtns {
+  display: flex;
+  text-align: center;
+}
 .quantitybtns button {
   width: 34px;
   height: 34px;
   font-size: 1.5em;
   border: none;
 }
+
 
 .quantity {
   display: inline-flex;
@@ -105,7 +98,6 @@ nav {
   /*min-width: 300px;*/
   display: flex;
   flex-direction: column;
-  align-items: center;
   border: 1px solid #000000;
   border-radius: 6px;
   margin: 10px;
@@ -176,3 +168,109 @@ nav {
 }
 
 h2{text-align: center; text-shadow: cornflowerblue;}
+
+.modalBox {
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+ 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 2px solid #000;
+  border-radius: 8px;
+  margin: 20px;
+  background:rgb(254, 254, 254);
+  box-shadow: rgba(46, 77, 219, 0.1) 0px 10px 15px -3px,
+   rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  padding: 10px;
+
+  width: 60vw;
+  height: 30vh;
+  overflow: hidden;
+}
+
+
+.modalButtons{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5vh;
+}
+
+.modalButtons button {
+
+  padding: 10px 20px;
+  margin-right: 22px;
+  min-width: 130px;
+  background: purple;
+  color: white;
+  font-size: larger;
+  border-radius: 10px 10px;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+}
+
+.cartContainer {
+  position: relative;
+}
+
+.clearCart {
+  margin-left: 90%;
+  padding: 10px;
+}
+
+.itemImg button {
+  visibility: hidden;
+  position: absolute;
+  transform : translate(-120%, 0%)
+}
+.itemImg:hover button {
+  visibility: visible;
+  position: absolute;
+  transform : translate(-120%, 0%)
+}
+
+.itemDetails img {
+  width: 25vw;
+  height: 300px;
+  max-height: 250px;
+  padding: 14px;
+  margin-left: 90px;
+}
+.itemDetails {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.itemDetailWrapper {
+   display: grid;
+  grid-template-columns: 30% 70%;
+  width: 100%;
+}
+.itemDetailImg {
+  width: 80%;
+  margin: auto;
+}
+.itemDetailImg img {
+  width: 100%;
+}
+.productDetails {
+  display:flex;
+  /* justify-content: center;
+  text-align: center;*/
+  width: 100%;
+  border: 10px solid rgba(46, 77, 219, 0.1);
+  border-radius: 10px;
+
+}
+
+.cardText {
+  font-size: 17px;
+  padding: 06px;
+  /* max-width: fit-content;*/
+}
